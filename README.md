@@ -1,7 +1,7 @@
 # Simple script for cleaning up cache on iMac.
 Script proceeds to remove the following directories and their contents:
-./.Trash/*
-./.cache/*
+- ./.Trash/*
+- ./.cache/*
 ./Library/Caches/*
 ./Library/Containers/com.docker.docker/*
 ./Library/Containers/*
