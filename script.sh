@@ -26,21 +26,21 @@ echo ""
 if [ -n "$input" ] && [ "$input" = "y" ]; then # checks if the user input is not empty and is "y"
     echo "${green}Cleaning up, please wait...";
     echo "${green}Cleaning up ./.Trash/*, please wait..."
-    rm -rf ./.Trash/*; # removes all files and directories in the .Trash folder
+    rm -rfv ./.Trash/* >> log_file.txt; # removes all files and directories in the .Trash folder
     echo "${green}Cleaning up ./.cache/*, please wait..."
-    rm -rf ./.cache/*; # removes all files and directories in the .cache folder
+    rm -rfv ./.cache/* >> log_file.txt; # removes all files and directories in the .cache folder
     echo "${green}Cleaning up ./Library/Caches/*, please wait..."
-    rm -rf ./Library/Caches/*; # removes all files and directories in the Library/Caches folder
+    rm -rfv ./Library/Caches/* >> log_file.txt; # removes all files and directories in the Library/Caches folder
     echo "${green}Cleaning up ./Library/Containers/com.docker.docker/*, please wait..."
-    rm -rf ./Library/Containers/com.docker.docker/*; # removes all files and directories in the Library/Containers/com.docker.docker folder
+    rm -rfv ./Library/Containers/com.docker.docker/* >> log_file.txt; # removes all files and directories in the Library/Containers/com.docker.docker folder
     echo "${green}Cleaning up ./Library/Containers/*, please wait..."
-    rm -rf ./Library/Containers/*; # removes all files and directories in the Library/Containers folder
+    rm -rfv ./Library/Containers/* >> log_file.txt; # removes all files and directories in the Library/Containers folder
     echo "${green}Cleaning up ./Library/Application Support/Code/User/*, please wait..."
-    rm -rf ./Library/Application\ Support/Code/User/*; # removes all files and directories in the Library/Application Support/Code/User folder
+    rm -rfv ./Library/Application\ Support/Code/User/* >> log_file.txt; # removes all files and directories in the Library/Application Support/Code/User folder
     echo "${green}Cleaning up ./Library/Application Support/Code/CachedData/*, please wait..."
-    rm -rf ./Library/Application\ Support/Code/CachedData/*; # removes all files and directories in the Library/Application Support/Code/CachedData folder
+    rm -rfv ./Library/Application\ Support/Code/CachedData/* >> log_file.txt; # removes all files and directories in the Library/Application Support/Code/CachedData folder
     echo "${green}Cleaning up ./Library/Developer/CoreSimulator/*, please wait..."
-    rm -rf ./Library/Developer/CoreSimulator/*; # removes all files and directories in the Library/Developer/CoreSimulator folder
+    rm -rfv ./Library/Developer/CoreSimulator/* >> log_file.txt; # removes all files and directories in the Library/Developer/CoreSimulator folder
     echo "${green}Cleanup completed."
     echo ""
 else
@@ -51,9 +51,9 @@ fi
 read -n1 -p "${cyan}Do you want to clean up the Downloads folder? [${green} Y ${cyan}/${red} N ${cyan}]${reset} " input
 echo ""
 if [ -n "$input" ] && [ "$input" = "y" ]; then
-        echo "${green}Cleaning up Downloads, please wait...";
-		rm -rf ./Downloads/*;
-        echo "${green}Cleanup completed."
+        echo "${green}Cleaning up Downloads, please wait..."${red};
+		rm -rfv ./Downloads/*;
+        echo "${green}Cleanup completed. Logs updated."
     echo -e "${cyan}\nDisk space before cleanup:\n${reset}${initial_df}${cyan}\n\nDisk space after cleanup:${reset}"
         df -h . | grep --color=always -E "Size|Used|Avail|Capacity|[0-9]*\.*[0-9]*Mi|[0-9]*\.*[0-9]*Gb|[0-9]+\.*[0-9]+% |$"
     echo ""
