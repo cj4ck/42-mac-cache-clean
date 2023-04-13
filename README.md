@@ -23,8 +23,8 @@ git clone https://github.com/cj4ck/42-mac-cache-clean
 cd 42-mac-cache-clean
 ```
 ```bash
-chmod +x ./cleanup_space.sh
+chmod +x ./script.sh
 ```
 ```bash
-./cleanup_space.sh
+./script.sh
 ```
