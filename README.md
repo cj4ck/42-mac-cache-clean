@@ -23,8 +23,9 @@ git clone https://github.com/cj4ck/42-mac-cache-clean
 cd 42-mac-cache-clean
 ```
 ```bash
-chmod +x ./script.sh
+chmod +x script.sh
 ```
 ```bash
 ./script.sh
 ```
+![example](./example.png)
